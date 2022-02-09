@@ -1,0 +1,41 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+    {%- assign title = site.data[language].title | default: site.title -%}
+    {%- assign author = site.data[language].author | default: site.author -%}
+    {%- assign email = site.data[language].email | default: site.email -%}
+    {%- assign desc = site.data[language].description | default: site.description | escape -%}
+    <h2 class="footer-heading">{{ title | escape }}</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+            {%- if author -%}
+              {{ author | escape }}
+            {%- else -%}
+              {{ title | escape }}
+            {%- endif -%}
+            </li>
+            {%- if email -%}
+            <li><a class="u-email" href="mailto:{{ email }}">{{ email }}</a></li>
+            {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        {%- capture social -%}
+         {%- include social.html -%}
+        {%- endcapture -%}
+        {{ social | replace: "/feed.xml", site.data[language].feed.path }}
+      </div>
+
+      <div class="footer-col footer-col-3">
+        {{ desc }}
+      </div>
+    </div>
+
+  </div>
+
+</footer>

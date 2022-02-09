@@ -1,0 +1,15 @@
+lang: uk
+title: Ваша дивовижна назва
+email: your-email@example.com
+description: >- # this means to ignore newlines until "header_pages:"
+  Напишіть чудовий опис свого нового сайту тут. Ви можете редагувати цей рядок
+  у _data/uk.yml. Він з'явиться у вашому заголовку meta (для результатів пошуку
+  Google) і в описі вашого сайту feed.xml.
+header_pages:
+  - test.uk.md
+  - about.uk.md
+feed:
+  text: підпішіться на
+  path: /uk/feed.xml
+author: Автор
+email: your-uk-email@example.com

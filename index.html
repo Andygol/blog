@@ -1,0 +1,16 @@
+---
+lang: uk
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+  {% include head.html %}
+  <body>
+    <script>
+        var lang = navigator.language || navigator.userLanguage;
+        if (lang.indexOf('{{ page.lang }}') == 0)
+          window.location = '{{ page.lang | absolute_url }}';
+        else
+          window.location = '{{ "en" | absolute_url }}';
+    </script>
+  </body>
+</html>

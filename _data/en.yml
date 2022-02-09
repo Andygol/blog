@@ -1,0 +1,15 @@
+lang: en
+title: Your awesome title
+email: your-email@example.com
+description: >- # this means to ignore newlines until "header_pages:"
+  Write an awesome description for your new site here. You can edit this
+  line in _data/en.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+header_pages:
+  - test.en.md
+  - about.en.md
+feed:
+  text: subscribe via
+  path: /en/feed.xml
+author: Author
+email: your-en-email@example.com

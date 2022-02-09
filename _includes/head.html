@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin SEO tag -->
+  {% assign title = page.title | default: site.data[page.lang].title | default: site.title | escape %}
+  {%- assign desc = site.data[page.lang].description | default: site.description | escape -%}
+  <title>{%- if page.title -%}{{ title }} | {{ site.data[page.lang].title }}{%- else -%}{{ title | escape }} | {{ desc | escape }}{%- endif -%}</title>
+  <meta name="generator" content="{{ jekyll.version }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:locale" content="{{ page.lang }}" />
+  <meta name="description" content="{{ desc }}" />
+  <meta property="og:description" content="{{ desc }}" />
+  <link rel="canonical" href="{{ page.url | relative_url }}">
+  <meta property="og:url" content="{{ page.url | relative_url }}" />
+  <meta property="og:site_name" content="{%- if site.data[page.lang].title -%}{{ site.data[page.lang].title }}{%- else -%}site.title{%- endif -%}"/>
+  <script type="application/ld+json">
+    {"description": "{{ desc }}", "@type": "WebPage", "url": "{{ page.url | relative_url }}", "headline": "{{ title }}", "@context": "http://schema.org"}
+  </script>
+  <!-- End SEO tag -->
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- if site.data[page.lang].feed.path -%}
+  <link type="application/atom+xml" rel="alternate" href="{{ site.data[page.lang].feed.path }}" title="{{ site.data[page.lang].title }}" />
+  {%- endif -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+</head>

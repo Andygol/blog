@@ -3,8 +3,8 @@
 
   <div class="wrapper">
     {%- assign title = site.data[language].title | default: site.title -%}
-    {%- assign author = site.data[language].author | default: site.author -%}
-    {%- assign email = site.data[language].email | default: site.email -%}
+    {%- assign author = site.data[language].author.name | default: site.author.name -%}
+    {%- assign email = site.data[language].author.email | default: site.author.email -%}
     {%- assign desc = site.data[language].description | default: site.description | escape -%}
     <h2 class="footer-heading">{{ title | escape }}</h2>
 

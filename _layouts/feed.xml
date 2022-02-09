@@ -29,7 +29,7 @@ layout: null
     <subtitle>{{ desc | xml_escape }}</subtitle>
   {% endif %}
 
-  {%- assign authors = site.data[page.lang].author | default: site.author -%}
+  {%- assign authors = site.data[page.lang].author.name | default: site.author.name -%}
   {%- if authors -%}
     <author>
       <name>{{ authors.name | default: authors | xml_escape }}</name>
@@ -55,7 +55,7 @@ layout: null
       <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
         {{ post.content | strip | xml_escape }}
       </content>
-      {%- assign post_author = post.author | default: post.authors[0] | default: site.data[page.lang].author | default: site.author -%}
+      {%- assign post_author = post.author | default: post.authors[0] | default: site.data[page.lang].author.name | default: site.author.name -%}
       {%- assign post_author = site.data.authors[post_author] | default: post_author -%}
       {%- assign post_author_email = post_author.email | default: nil -%}
       {%- assign post_author_uri = post_author.uri | default: nil -%}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Making a model of an island using plywood
-date: '2022-02-10 20:11'
+date: '2022-02-10 20:11:00 +0200'
 categories:
   - en
 tags:

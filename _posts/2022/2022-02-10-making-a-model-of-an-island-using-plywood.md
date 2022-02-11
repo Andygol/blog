@@ -18,9 +18,7 @@ The package included a kilogram spool of black PLA thread for 3D printing, 2 pie
 
 First, I put the module for 3D printing and was impressed. Impressed by the process itself, how the finished product appeared layer by layer. Having no previous experience, I managed to print several items from the first attempt (almost the first).
 
-<center>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/cX_YODc6Eek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
+{% include youtube.html id='cX_YODc6Eek' %}
 
 The next step was to test the laser module. I didn't want to cut out a simple test box that is available in the Luban project library. I wanted something interesting.
 
@@ -90,12 +88,10 @@ You can start assembling from the lowest layer and move up, or from the top laye
 
 Because my laser didn't cut through a piece of plywood in all places and I had to separate the parts with a model knife, I decided to assemble the island from the top to the shoreline, removing the smallest elements first and applying them to the larger ones.
 
-<center>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/P1e5ME25k6Y" title="YouTube video player"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
+{% include youtube.html id='P1e5ME25k6Y' %}
 
 In the process of assembling, I thought it would be good to add the name of the island and its coordinates to the base, the largest detail on which I laser engraved the shoreline. After that I glued the island to the base.
 
 <center>
-<blockquote class="twitter-tweet"><p lang="uk" dir="ltr">Look what I have done!<br><br>Material: 2 pieces of plywood 1,5mm 150 × 150mm<br>Isolines: Elevation tiles by Mapzen<br>Processing: Inkscape<br>Cutting, engraving: <a href="https://twitter.com/hashtag/snapmaker?src=hash&amp;ref_src=twsrc%5Etfw">#snapmaker</a> 2.0 A150 <br><br>Assembling: by myself. <a href="https://t.co/2TAbXT71jH">pic.twitter.com/2TAbXT71jH</a></p>&mdash; Andrey Golovin (@andygol_) <a href="https://twitter.com/andygol_/status/1489968188636999683?ref_src=twsrc%5Etfw">February 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Look what I have done!<br><br>Material: 2 pieces of plywood 1,5mm 150 × 150mm<br>Isolines: Elevation tiles by Mapzen<br>Processing: Inkscape<br>Cutting, engraving: <a href="https://twitter.com/hashtag/snapmaker?src=hash&amp;ref_src=twsrc%5Etfw">#snapmaker</a> 2.0 A150 <br><br>Assembling: by myself. <a href="https://t.co/2TAbXT71jH">pic.twitter.com/2TAbXT71jH</a></p>&mdash; Andrey Golovin (@andygol_) <a href="https://twitter.com/andygol_/status/1489968188636999683?ref_src=twsrc%5Etfw">February 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>

@@ -34,7 +34,7 @@ OpenStreetMap відрізняється власне, доволі спроще
 
 З поширенням OpenStreetMap великі компанії звернули на нього увагу.  OSM дозволив їм закривати прогалини в даних, які присутні в наборах, що вони купують у комерційних постачальників. Через відкриту природу проєкту та політику заохочення до участі в ньому корпорації також стали вносити свої відкриті дані в OSM.
 
-Участь корпоративних маперів отримала неоднозначну реакцію в спільноті OSM. Одні учасники давали схвальні або нейтральні відгуки, в той час, як інші скаржились на те що корпоративні мапери робили те, що з точки погляду місцевих маперів не збігалось з їх уявленням про мапінг, його цілі, мотивуючи це тим, що їм на місце краще відомо, де, що і як треба робити.
+Участь корпоративних маперів отримала неоднозначну реакцію в спільноті OSM. Одні учасники давали схвальні або нейтральні відгуки, в той час, як інші скаржились на те що корпоративні мапери робили те, що з точки погляду місцевих маперів не збігалось з їх уявленням про мапінг, його цілі, мотивуючи це тим, що їм на місці краще відомо, де, що і як треба робити.
 
 Однак, через те що OSMF не встановлює формальні правила щодо того, яким чином, якими теґами позначати ті чи інші обʼєкти нашого світу, в OSM присутній певний ступінь саморегулювання поруч з анархією.
 
@@ -55,10 +55,10 @@ OpenStreetMap відрізняється власне, доволі спроще
 Тепер мʼяч на стороні Overture Map Fundation. Чекаємо наступних кроків від них.
 
 
-[^1]: Заява про створення Overture Map Foundation – https://www.linuxfoundation.org/press/linux-foundation-announces-overture-maps-foundation-to-build-interoperable-open-map-data
+[^1]: Заява про створення Overture Map Foundation – <https://www.linuxfoundation.org/press/linux-foundation-announces-overture-maps-foundation-to-build-interoperable-open-map-data>
 
-[^2]: Повний текст Ліцензії Open Database License – https://opendatacommons.org/licenses/odbl/1-0/
+[^2]: Повний текст Ліцензії Open Database License – <https://opendatacommons.org/licenses/odbl/1-0/>
 
-[^3]: Про Фундацію OpenStreetMap — https://wiki.osmfoundation.org/wiki/About
+[^3]: Про Фундацію OpenStreetMap — <https://wiki.osmfoundation.org/wiki/About>
 
-[^4]: New York renamed 'Jewtropolis' in map hack – https://www.bbc.com/news/technology-45354311
+[^4]: New York renamed 'Jewtropolis' in map hack – <https://www.bbc.com/news/technology-45354311>

@@ -53,6 +53,8 @@ Reading the [discussion on the new OSM community forum](https://community.openst
 
 The ball is now in Overture Map Foundation's side. We are waiting for the next steps from them.
 
+\>\> [What does Overture Map mean for the future of OpenStreetMap? (part 2)](2022-12-27-creating-overture-map-and-future-of-osm-2)
+
 ---
 
 [^1]: Statement on the establishment of the Overture Map Foundation – <https://www.linuxfoundation.org/press/linux-foundation-announces-overture-maps-foundation-to-build-interoperable-open-map-data>

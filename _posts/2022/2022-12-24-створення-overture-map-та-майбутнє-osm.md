@@ -54,6 +54,9 @@ OpenStreetMap відрізняється власне, доволі спроще
 
 Тепер мʼяч на стороні Overture Map Fundation. Чекаємо наступних кроків від них.
 
+\>\> [Що означає створення Overture Map для майбутнього OpenStreetMap? (частина 2)](2022-12-27-створення-overture-map-та-майбутнє-osm-2)
+
+---
 
 [^1]: Заява про створення Overture Map Foundation – <https://www.linuxfoundation.org/press/linux-foundation-announces-overture-maps-foundation-to-build-interoperable-open-map-data>
 

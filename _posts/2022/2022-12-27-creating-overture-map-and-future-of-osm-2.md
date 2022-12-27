@@ -11,8 +11,6 @@ comments: true
 lang: en
 ref: osm-overture-map-2
 ---
-# What does creating an Overture Map mean for the future of OpenStreetMap? (Part 2)
-
 The Overture Map Foundation, about the creation of which [I wrote the other day](https://blog.andygol.co.ua/en/2022/12/24/creating-overture-map-and-future-of-osm/), should solve problems that are still not solved in OpenStreetMap. Hopes, reproaches from the members of the OSM community are only a reaction to what should have happened a long time ago. Perhaps the basis of such reactions was the mention of the future use of OSM data in Overture Map.
 
 To be honest, Overture Map owes nothing to OpenStreetMap and vice versa. [Views from the OpenStreetMap Foundation on the launch of Overture](https://blog.openstreetmap.org/2022/12/22/views-from-the-openstreetmap-foundation-on-the-launch-of-overture/), which were published on the OSM Blog, are in the fairway of events, in which the main player is the Overture Map Foundation, now in the foreground is Overture Map and its founders.

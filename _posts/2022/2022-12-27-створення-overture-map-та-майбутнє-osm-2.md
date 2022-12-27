@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Що означає створення Overture Map для майбутнього OpenStreetMap? (частина 2)
+title: Що означає створення Overture Map для майбутнього OpenStreetMap? (частина 2)
 date: '2022-12-27 16:00:00 +0200'
 categories:
   - uk

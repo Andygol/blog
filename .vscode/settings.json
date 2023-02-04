@@ -1,0 +1,8 @@
+{
+    "languageToolLinter.languageTool.ignoredWordsInWorkspace": [
+        "`~/.vimrc`\n\n```sh\nvim ~/.vimrc\n```\n\nта",
+        "`~/.zshrc`\n\n```\nzsh_colorize_tool=pygmentize\nzsh_colorize_style=\"default\"\n```\n\nперед",
+        "`~/.zshrc`\n\n```sh\nzsh_colorize_tool=pygmentize\nzsh_colorize_style=\"default\"\n```\n\nперед",
+        "шелу"
+    ]
+}

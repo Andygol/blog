@@ -232,7 +232,7 @@ plugins=(
 
 Ви завжди можете додати потрібні вам втулки, перелік яких є у <https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins>, або ж ви можете пошукати сторонні втулки та додати їх.
 
-## Starship
+## Spaceship
 
 Налаштуємо запрошення командного рядка. Докладні інструкції див <https://spaceship-prompt.sh/getting-started/#installing>
 

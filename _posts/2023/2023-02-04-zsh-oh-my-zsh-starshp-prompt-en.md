@@ -232,7 +232,7 @@ For `colorize` we set `pygments`, and for `zsh-aliases-lsd` we set
 
 You can always add the plugins you need, listed at <https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins>, or you can search for third-party plugins and add them.
 
-## Starship
+## Spaceship
 
 Let's configure the command line prompt. See <https://spaceship-prompt.sh/getting-started/#installing> for detailed instructions
 

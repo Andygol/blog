@@ -125,7 +125,7 @@ But still, when trying to initialize the autocompleter, we receive a message abo
 
 ![zsh-completion permissions](/images/2023/02/zsh-completion-permissions.png)
 
-дexecute the command to grant the appropriate permissions
+execute the command to grant the appropriate permissions
 
 ```sh
 compaudit | xargs chmod g-w, o-w

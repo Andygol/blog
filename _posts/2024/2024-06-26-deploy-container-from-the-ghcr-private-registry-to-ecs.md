@@ -2,7 +2,7 @@
 layout: "post"
 title: "Deploy a container from the ghcr.io private registry to Amazon ECS"
 date: "2024-06-26 10:30:00 +0200"
-categories: uk
+categories: en
 tags:
   - React
   - GitHub

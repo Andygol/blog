@@ -28,6 +28,10 @@ This guide is intended both for self-study and for taking the first steps in dep
 
 Highly available Kubernetes clusters are used in production environments to ensure the continuous operation of applications. Redundancy of key cluster components allows avoiding downtime in case of failure of individual control plane nodes or etcd.
 
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/03kdtcJZaQ8?si=gQK1f5iuz6K5CynL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 ### Components
 
 We will deploy the cluster using kubeadm on virtual machines running Ubuntu, created by Multipass and initialized using cloud-init.
@@ -632,7 +636,7 @@ sudo kubeadm init phase certs etcd-ca
 
 We will get two files, `ca.crt` and `ca.key`, in the `/etc/kubernetes/pki/etcd/` folder.
 
-<a id="etcd-kubeadmcfg-yaml"></a>Now let's create a configuration file for kubeadm `kubeadmcfg.yaml` using the appropriate values in the variables `HOST` (IP address of the virtual machine) and `NAME` (its short name). Note the value of the `INIT_CLUSTER_STATE` variable, which indicates that we are creating a new etcd cluster. We will add other nodes to it later.
+<a id="etcd-kubeadmcfg-yaml"></a>Now let's create a configuration file for kubeadm `kubeadmcfg.yaml` using the appropriate values in the variables `ETCD_HOST` (IP address of the virtual machine) and `ETCD_NAME` (its short name). Note the value of the `ETCD_INITIAL_CLUSTER_STATE` variable, which indicates that we are creating a new etcd cluster. We will add other nodes to it later.
 
 ```bash
 ETCD_HOST=$(hostname -I | awk '{print $2}')
@@ -780,7 +784,7 @@ crictl exec $(crictl ps --label io.kubernetes.container.name=etcd --quiet) etcdc
    member add ext-etcd-2 --peer-urls=https://10.10.0.12:2380
 ```
 
-`crictl` will register a new member of the etcd cluster, and in response we will receive its ID and the string `“ext-etcd-1=https://10.10.0.11:2380,ext-etcd-2=https://10.10.0.12:2380”` with a complete list of cluster nodes (including the new member).
+`etcdctl` will register a new member of the etcd cluster, and in response we will receive its ID and the string `“ext-etcd-1=https://10.10.0.11:2380,ext-etcd-2=https://10.10.0.12:2380”` with a complete list of cluster nodes (including the new member).
 
 ```console
 Member e3e9330902f761c3 added to cluster 3f0c3972eda275cb
@@ -1156,7 +1160,7 @@ write_files:
           option tcp-check
           timeout server 2h
           timeout client 2h
-          # Here we specify the parameters of etcd node that we know
+          # Here we specify the parameters of control plane node that we know
           server cp-1 10.10.0.21:6443 check check-ssl verify none fall 3 rise 2
           server cp-2 10.10.0.22:6443 check check-ssl verify none fall 3 rise 2
           server cp-3 10.10.0.23:6443 check check-ssl verify none fall 3 rise 2
@@ -1440,7 +1444,7 @@ After spinning up the control panel node, copy the following files from any etcd
 ```bash
 # 1. Prepare the files on the source node (10.10.0.11):
 # Copy them to a temporary folder and change the owner to the current user so that scp can read them.
-ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.11 " \
+ssh -i ~/.ssh/k8s_cluster_key k8sadmin@10.10.0.11 " \
   mkdir -p /tmp/cert/ && \
   sudo cp /etc/kubernetes/pki/etcd/ca.crt /tmp/cert/ && \
   sudo cp /etc/kubernetes/pki/apiserver-etcd-client.* /tmp/cert/ && \
@@ -1448,11 +1452,11 @@ ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.11 " \
 
 # 2. Transferring files between nodes via your local terminal:
 # Use quotation marks to handle wildcards (*) on the remote side
-scp -i .ssh/k8s_cluster_key -r 'k8sadmin@10.10.0.11:/tmp/cert/' 'k8sadmin@10.10.0.21:/tmp'
+scp -i ~/.ssh/k8s_cluster_key -r 'k8sadmin@10.10.0.11:/tmp/cert/' 'k8sadmin@10.10.0.21:/tmp'
 
 # 3. Placing files on the target node (10.10.0.21):
 # Create a folder (if it does not exist), move the files, and restore root privileges.
-ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.21 " \
+ssh -i ~/.ssh/k8s_cluster_key k8sadmin@10.10.0.21 " \
   sudo mkdir -p /etc/kubernetes/pki/etcd/ && \
   sudo mv /tmp/cert/ca.crt /etc/kubernetes/pki/etcd/ && \
   sudo chown root:root /etc/kubernetes/pki/etcd/ca.crt && \
@@ -1460,8 +1464,8 @@ ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.21 " \
   sudo chown root:root /etc/kubernetes/pki/apiserver-etcd-client.*"
 
 #4. Cleaning temporary files:
-ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.11 "rm -rf /tmp/cert"
-ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.21 "rm -rf /tmp/cert"
+ssh -i ~/.ssh/k8s_cluster_key k8sadmin@10.10.0.11 "rm -rf /tmp/cert"
+ssh -i ~/.ssh/k8s_cluster_key k8sadmin@10.10.0.21 "rm -rf /tmp/cert"
 ```
 
 #### Checking the use of Static Pods HAProxy
@@ -1517,7 +1521,7 @@ In addition, during the `preflight` phase, the `kubeadm` command attempts to ver
 Let's create a file named `kubeadm-config.yaml` in the home directory of the `k8sadmin` user on the first node to initialize the control panel.
 
 ```bash
-ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.21 "cat << 'EOF' > \$HOME/kubeadm-config.yaml
+ssh -i ~/.ssh/k8s_cluster_key k8sadmin@10.10.0.21 "cat << 'EOF' > \$HOME/kubeadm-config.yaml
 ---
 apiVersion: kubeadm.k8s.io/v1beta4
 kind: ClusterConfiguration
@@ -2164,7 +2168,7 @@ If you have **Stacked Etcd**, the following command will be sufficient to obtain
 
 ```bash
 # On node cp-1
-ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.21
+ssh -i ~/.ssh/k8s_cluster_key k8sadmin@10.10.0.21
 sudo -sE
 $(kubeadm token create --print-join-command) --control-plane --certificate-key $(kubeadm init phase upload-certs --upload-certs | tail -1)
 ```
@@ -2282,7 +2286,7 @@ To remove a control plane node (for example, `cp-2`) from the cluster, follow th
 
 ## Deploying Worker Nodes
 
-To deploy worker nodes, we will use the settings from `snipets/cloud-init-config.yaml`, `snipets/cloud-init-user.yaml`, and `snipets/cloud-init-base.yaml`. During the file merging process, we will remove `kubectl` from the list of packages to install. For worker nodes, we will use IP addresses from the range 10.10.0.30 — 10.10.0.30.99.
+To deploy worker nodes, we will use the settings from `snipets/cloud-init-config.yaml`, `snipets/cloud-init-user.yaml`, and `snipets/cloud-init-base.yaml`. During the file merging process, we will remove `kubectl` from the list of packages to install. For worker nodes, we will use IP addresses from the range 10.10.0.30 — 10.10.0.99.
 
 ```bash
 export VM_IP="10.10.0.31/24"
@@ -2727,7 +2731,7 @@ Use ssh to read the file directly into a new local file. Replace 10.10.0.21 with
 
 ```bash
 # On your local machine
-ssh -i .ssh/k8s_cluster_key k8sadmin@10.10.0.21 "sudo cat /etc/kubernetes/admin.conf" > kubeconfig-new.yaml
+ssh -i ~/.ssh/k8s_cluster_key k8sadmin@10.10.0.21 "sudo cat /etc/kubernetes/admin.conf" > kubeconfig-new.yaml
 ```
 
 #### 2. Clean up the configuration (Important)
